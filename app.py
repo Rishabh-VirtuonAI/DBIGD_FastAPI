@@ -77,4 +77,30 @@ def delete_qa_pair(id: int = Path(..., gt=0)):
         return
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
 
+# Endpoint to update a QA pair
+@app.post("/update_qa_pair", response_model=QAPairOut)
+def update_qa_pair(id: int, qa: QAPair):
+    try:
+        conn = mysql.connector.connect(**DB_CONFIG)
+        cursor = conn.cursor()
+        query = """
+            UPDATE qa_pairs 
+            SET question = %s, answer = %s 
+            WHERE id = %s
+        """
+        cursor.execute(query, (qa.question, qa.answer, id))
+        conn.commit()
+
+        # Check if a record was updated
+        if cursor.rowcount == 0:
+            raise HTTPException(status_code=404, detail="QA Pair not found")
+
+        cursor.close()
+        conn.close()
+
+        return QAPairOut(id=id, **qa.dict())
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
