@@ -117,7 +117,7 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:3000",  # React/Vue frontend running locally
-    "http://xx.x.xx.xxx",     # Your server IP
+    "http://65.0.34.207",     # Your server IP
     "http://example.com"      # Add more allowed origins if necessary
 ]
 
