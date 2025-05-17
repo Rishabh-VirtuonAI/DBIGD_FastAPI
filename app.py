@@ -133,7 +133,7 @@ app.add_middleware(
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "%V:rorRawr=kZsm#60dF",
+    "password": "Linod+/+Mooxy/2021",
     "database": "chatbot_db"
 }
 
