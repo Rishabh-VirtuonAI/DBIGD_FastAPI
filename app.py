@@ -116,14 +116,14 @@ app = FastAPI()
 # CORS Configuration
 origins = [
     "http://localhost",
-    "http://localhost:3000",  # React/Vue frontend running locally
-    "http://65.0.34.207",     # Your server IP
-    "http://example.com"      # Add more allowed origins if necessary
+    "http://localhost:3000",  
+    "http://65.0.34.207",     
+    "http://example.com"      
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -133,7 +133,7 @@ app.add_middleware(
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "Linod+/+Mooxy/2021",
+    "password": "%V:rorRawr=kZsm#60dF",
     "database": "chatbot_db"
 }
 
